@@ -25,3 +25,22 @@ AppRegistry.registerComponent('manager', () => App);
 5. Reducer calculates new app state
 6. State sent to all components
 7. Component rerender with new state
+
+### Types.js
+```
+_________               ____________               ___________
+|         |             |            |             |           |
+| Reducer |<------------| Types.js   |------------▶|  Action   |
+|_________|             |____________|             |___________|
+                        * EMAIL_CHANGED = 'email_changed'
+                        * PASSWORD_CHANGE = 'password_changed'
+```
+
+```js
+export const EMAIL_CHANGED = 'email_changed'; // did not use export default because there are many other types that will be exported in a file.
+```
+
+### Immutable state
+```
+
+```
