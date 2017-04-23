@@ -40,7 +40,33 @@ _________               ____________               ___________
 export const EMAIL_CHANGED = 'email_changed'; // did not use export default because there are many other types that will be exported in a file.
 ```
 
-### Immutable state
+### Proposed State
+1. Email
+When user types something on a email field
+2. Password
+When user types something on a password field
+3. Loading
+True when we start our auth process, false when it completes
+4. Error
+Default to empty string. Throw an error when auth is failed
+5. User
+Default to null. Put in the user model when we successfully auth.
+
+### Login User
+* When `login` button is tapped, call `loginUser` action creator with email and password.
+* Action creator makes request to log user in.
+
+### Async. Action Creator
+1. Call to Action Creator
+2. Action Creator runs
+3. Request to firebase is made -> request complete and we can return action
+4. WE have nothing to return  
+
+### Redux Thunk
+```
+$ npm install --save redux-thunk
 ```
 
-```
+### Action Creator Rules with Thunk
+* Action Creators return an action
+* Action Creators return a function that is called with 'dispatch'
