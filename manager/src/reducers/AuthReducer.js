@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
+  console.log(action);
   const type = action.type;
   switch (type) {
     case EMAIL_CHANGED:
