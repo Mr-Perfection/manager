@@ -70,3 +70,14 @@ $ npm install --save redux-thunk
 ### Action Creator Rules with Thunk
 * Action Creators return an action
 * Action Creators return a function that is called with 'dispatch'
+
+### Handling email and password login & signup & error handling with Firebase
+```js
+firebase.auth().signInWithEmailAndPassword(email, password)
+.then(user => loginUserSuccess(dispatch, user))
+.catch(() => {
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then(user => loginUserSuccess(dispatch, user))
+  .catch(() => loginUserFail(dispatch));
+});
+```
