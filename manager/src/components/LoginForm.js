@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
@@ -22,7 +22,7 @@ class LoginForm extends Component {
   renderButton() {
     console.log('renderButton is called!');
     if (this.props.loading) {
-        return <View><Spinner size="large" /></View>;
+        return <Spinner size="large" />;
     }
     return (
       <Button onPress={this.onButtonPress.bind(this)}>
