@@ -56,6 +56,8 @@ Default to null. Put in the user model when we successfully auth.
 * When `login` button is tapped, call `loginUser` action creator with email and password.
 * Action creator makes request to log user in.
 
+![alt text](demo/loginform.png "login form")
+
 ### Async. Action Creator
 1. Call to Action Creator
 2. Action Creator runs
@@ -84,7 +86,8 @@ firebase.auth().signInWithEmailAndPassword(email, password)
 
 ### React Native Router Flux (handling navigation)
 ```
-$ npm install --save react-native-router-flux 
+$ npm install --save react-native-router-flux@3.38.0 # make sure you install version 3.38.0 without ^ in the front.
+                                              # Removing that symbol forces npm install to install the version indicated instead of the newest version.
 
 ```
 
