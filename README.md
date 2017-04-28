@@ -81,3 +81,19 @@ firebase.auth().signInWithEmailAndPassword(email, password)
   .catch(() => loginUserFail(dispatch));
 });
 ```
+
+### React Native Router Flux (handling navigation)
+```
+$ npm install --save react-native-router-flux 
+
+```
+
+### How Scene works
+```js
+<Scene
+  key='login' //call `Actions.login` to show this screen
+  component={LoginForm} //show the component `loginForm`
+  title='Login' // make a new navbar and give a title 'Login'
+  initial // this is a first screen to show
+/>
+```
