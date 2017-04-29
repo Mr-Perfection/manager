@@ -91,6 +91,8 @@ $ npm install --save react-native-router-flux@3.38.0 # make sure you install
 
 ```
 
+Check out https://github.com/aksonov/react-native-router-flux/blob/master/docs/API_CONFIGURATION.md
+
 ### How Scene works
 ```js
 <Scene
@@ -99,4 +101,16 @@ $ npm install --save react-native-router-flux@3.38.0 # make sure you install
   title='Login' // make a new navbar and give a title 'Login'
   initial // this is a first screen to show
 />
+```
+### ES6 Key Interpolation
+```js
+// es6
+//...
+const { prop, value } = action.payload;
+return { ...state, [prop]: value };
+//...
+// without using Key Interpolation
+const { prop, value } = action.payload;
+state[prop] = value;
+return { ...state};
 ```
