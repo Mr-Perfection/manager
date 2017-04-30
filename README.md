@@ -114,3 +114,16 @@ const { prop, value } = action.payload;
 state[prop] = value;
 return { ...state};
 ```
+
+### React Native Style Overriding
+```js
+
+<CardSection style={{ flexDirection: 'column' }}>
+//...
+//...
+
+// if there exists style from props, then override it to the one on left inside the array.
+<View style={[styles.containerStyle, props.style]}>
+  {props.children}
+</View>
+```

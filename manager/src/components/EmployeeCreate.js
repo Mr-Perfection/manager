@@ -1,32 +1,39 @@
 import React, { Component } from 'react';
-import { Card, CardSection, Input, Button } from './common';
+import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { employeeUpdate, employeeCreate } from '../actions';
+import { Card, CardSection, Button } from './common';
+import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
-    render() {
-      return (
+  onButtonPress() {
+    const { name, phone, shift } = this.props;
+
+    this.props.employeeCreate({ name, phone, shift: shift || 'Monday' });
+  }
+
+  render() {
+    return (
+      <View>
         <Card>
-          <CardSection>
-            <Input
-              label='Name'
-              placeholder='John Doe'
-            />
-          </CardSection>
-          <CardSection>
-            <Input
-              label='Name'
-              placeholder='111-111-2111 '
-            />
-          </CardSection>
-          <CardSection>
-          </CardSection>
-          <CardSection>
-            <Button>
-              Create
-            </Button>
-          </CardSection>
+          <EmployeeForm {...this.props} />
         </Card>
-      );
-    }
+        <CardSection>
+          <Button onPress={this.onButtonPress.bind(this)}>
+            Create
+          </Button>
+        </CardSection>
+      </View>
+    );
+  }
 }
 
-export default EmployeeCreate;
+const mapStateToProps = (state) => {
+  const { name, phone, shift } = state.employeeForm;
+
+  return { name, phone, shift };
+};
+
+export default connect(mapStateToProps, {
+  employeeUpdate, employeeCreate
+})(EmployeeCreate);
