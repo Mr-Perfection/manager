@@ -127,3 +127,30 @@ return { ...state};
   {props.children}
 </View>
 ```
+
+### Firebase rules
+```
+# allow to read or write if auth's uid matches with users'
+{
+  "rules": {
+    "users": {
+      "$uid": {
+      ".read": "$uid === auth.uid",
+    	".write": "$uid === auth.uid"
+      }
+    }
+  }
+}
+```
+### Create data into Firebase
+```js
+export const employeeCreate = ({ name, phone, shift }) => {
+  // console.log(name, phone, shift); //check if this action is working.
+  const { currentUser } = firebase.auth();
+  return () => {
+    firebase.database().ref(`/users/${currentUser.uid}/employees`)
+      .push({ name, phone, shift }) //create a employee object
+      .then(() => Actions.employeeList()); // redirects to the employeeList 
+  };
+};
+```
