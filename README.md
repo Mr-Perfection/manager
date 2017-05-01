@@ -150,7 +150,12 @@ export const employeeCreate = ({ name, phone, shift }) => {
   return () => {
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
       .push({ name, phone, shift }) //create a employee object
-      .then(() => Actions.employeeList()); // redirects to the employeeList 
+      .then(() => Actions.employeeList()); // redirects to the employeeList
   };
 };
+```
+
+### Use lodash to convert object to array
+```js
+//npm install --save lodash
 ```
