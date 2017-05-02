@@ -155,7 +155,26 @@ export const employeeCreate = ({ name, phone, shift }) => {
 };
 ```
 
-### Use lodash to convert object to array
+### Use lodash (Object iteration OR Object=>Array)
 ```js
 //npm install --save lodash
+
+// iterating (value, key) of props in employee similar to enumerate in Python
+_.each(this.props.employee, (value, prop) => {
+  this.props.employeeUpdate({ prop, value });
+});
+
+// convery Obj to array
+const employees = _.map(state.employees, (val, uid) => {
+  return { ...val, uid };
+});
+return { employees };
+// returns an array of employees converted from object of employees with uids
+
+
 ```
+
+### Edit Employee Form
+![alt text](demo/editEmployeeForm.png "edit form")
+
+[EmployeeEdit.js](manager/src/components/EmployeeEdit.js)
