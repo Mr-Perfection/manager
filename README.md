@@ -178,3 +178,9 @@ return { employees };
 ![alt text](demo/editEmployeeForm.png "edit form")
 
 [EmployeeEdit.js](manager/src/components/EmployeeEdit.js)
+
+
+### Texting in React Native
+```
+$ npm install --save react-native-communications 
+```
