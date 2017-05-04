@@ -184,3 +184,19 @@ return { employees };
 ```
 $ npm install --save react-native-communications 
 ```
+The screen before transitioning to texting in native application.
+![alt text](demo/b4texting.png "before texting")
+
+Texting screen with a body text.
+![alt text](demo/texting.png "texting")
+
+Code that opens texting window & input the phone # and text body.
+```js
+import Communications from 'react-native-communications';
+//...
+onTextPress() {
+  const { phone, shift } = this.props;
+  Communications.text(phone, `Your upcoming shift is ${shift}`);
+}
+//... so simple!
+```
