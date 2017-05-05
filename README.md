@@ -200,3 +200,7 @@ onTextPress() {
 }
 //... so simple!
 ```
+
+### Deleting Employee modal
+
+![alt text](demo/deleteEmployee.png "delete modal")
